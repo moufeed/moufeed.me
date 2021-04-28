@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "mofid-portfolio",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "portfolio",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "mofid jobakji <m.jobakji@hotmail.com>",
   "dependencies": {
     "gatsby": "^3.3.1",
     "gatsby-plugin-gatsby-cloud": "^2.2.0",
@@ -20,7 +20,9 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "prettier": "2.2.1"
+    "gatsby-plugin-sass": "^4.4.0",
+    "prettier": "2.2.1",
+    "sass": "^1.32.11"
   },
   "keywords": [
     "gatsby"
@@ -34,12 +36,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
+
+
 }
