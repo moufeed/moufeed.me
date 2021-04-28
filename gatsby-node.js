@@ -1,7 +1,23 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
+const path = require(`path`)
+exports.createPages = async ({ graphql, actions }) => {
 
-// You can delete this file if you're not using it
+  const { data } = await graphql`
+    query Projects {
+       allMarkdownRemark {
+        nodes {
+          frontmatter {
+            slug
+          }
+        }
+      }
+    }
+  `;
+
+  data.allMarkdownRemark.nodes.forEach(node => {
+      actions.createPage({
+        path: "/projects/" + node.frontmatter.slug,
+        component: path.resolve("./src/templates/project-details.jsx"),
+        context: { slug: node.frontmatter.slug },
+      })
+  });
+}
