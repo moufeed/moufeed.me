@@ -1,6 +1,6 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
-
+import { useStaticQuery, graphql, Link } from "gatsby";
+import Img from "gatsby-image"
 const ProjectsPage = () => {
   const data = useStaticQuery(graphql`
     query ProjectsPage {
@@ -12,7 +12,14 @@ const ProjectsPage = () => {
             slug
             title
             excerpt
-            featureImage
+            thumb {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+
+                }
+              }
+            }
           }
           id
         }
@@ -35,7 +42,10 @@ const ProjectsPage = () => {
     <div>
       {projects.map(({ frontmatter: project }, index) => (
         <Link key={index} to={`/projects/${project.slug}`}>
-          <div>{project.title}</div>
+          <div>
+            <Img fluid={project.thumb.childImageSharp.fluid} />
+            {project.title}
+          </div>
         </Link>
       ))}
     </div>

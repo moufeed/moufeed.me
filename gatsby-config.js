@@ -6,6 +6,7 @@ module.exports = {
     siteUrl: "https://www.moufeed.me",
     phone: "+905353869746",
     email: "m.jobakji@hotmail.com",
+    name: "mofid ",
   },
   plugins: [
     `gatsby-plugin-sass`,
