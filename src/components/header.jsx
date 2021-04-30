@@ -2,7 +2,11 @@ import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-const Header = () => {
+import useWindowSize from "../hooks/window-size"
+import { breakpoint } from "../constance"
+import MenuIcon from "../images/icons/menu.inline.svg"
+const Header = ({ drawer }) => {
+  let [width] = useWindowSize()
   const {
     site: { siteMetadata: siteData },
   } = useStaticQuery(graphql`
@@ -10,6 +14,10 @@ const Header = () => {
       site {
         siteMetadata {
           siteTitle
+          menuLinks {
+            label
+            url
+          }
         }
       }
     }
@@ -18,18 +26,44 @@ const Header = () => {
   return (
     <header className="mainHeader container">
       <div className="mainHeader--logo ">
-        <Link to="/" className="d-flex">
+        <Link
+          to="/"
+          className="d-flex align-items-center mainHeader--logo--link"
+        >
           <StaticImage
             src="../images/icon.png"
-            width={60}
+            width={55}
             layout="fixed"
             quality={95}
             formats={["AUTO", "WEBP", "AVIF"]}
             alt="moufeed logo"
           />
-          <strong className="d-inline">{siteData.siteTitle}</strong>
+          <strong className="d-inline text-dark">{siteData.siteTitle}</strong>
         </Link>
       </div>
+      {width > breakpoint ? (
+        <div className="mainHeader--nav d-flex justify-flex-end">
+          <nav className="mainNavigation d-flex align-items-center">
+            {siteData.menuLinks.map((link, index) => (
+              <Link
+                to={link.url}
+                key={index}
+                className="mainNavigation--link"
+                activeClassName="active"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      ) : (
+        <button
+          onClick={event => drawer()}
+          className="btn mainHeader--button no-border"
+        >
+          <MenuIcon />
+        </button>
+      )}
     </header>
   )
 }

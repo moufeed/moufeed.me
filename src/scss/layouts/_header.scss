@@ -1,9 +1,30 @@
-
-.mainHeader{
-  padding: 2rem 0;
-  background-color: rgba(white , .8);
+@use '../abstracts/' as *;
+.mainHeader {
+  padding: 2rem 1rem;
+  background-color: rgba(white, 0.8);
   backdrop-filter: blur(5px);
-  &--logo{
-    grid-column: 1/4;
+  &--logo {
+    grid-column: 1/6;
+    &--link {
+      text-decoration: none;
+      color: var(--color-text);
+      strong {
+        margin: 0 5px;
+      }
+    }
+  }
+
+  &--nav {
+    grid-column: 6/-1;
+  }
+  &--button {
+    grid-column: -1;
+    svg {
+      height: 30px;
+      width: 30px;
+      path{
+        fill:var(--color-text);
+      }
+    }
   }
 }

@@ -1,7 +1,0 @@
-.container{
-  display: grid;
-  grid-template-columns: repeat(12,1fr);
-  max-width: var(--container);
-  margin: 0 auto;
-  gap: var(--gap);
-}
