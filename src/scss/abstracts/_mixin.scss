@@ -1,0 +1,51 @@
+@use 'variables' as *;
+
+@mixin display {
+  @each $display in $displayMap {
+    .d-#{$display} {
+      display: $display;
+    }
+  }
+}
+
+@mixin justify {
+  @each $justify in $justifyMap {
+    .justify-#{$justify} {
+      justify-content: $justify;
+    }
+  }
+}
+
+@mixin alignItems {
+  @each $align in $alignItemsMap {
+    .align-items-#{$align} {
+      align-items: $align;
+    }
+  }
+}
+
+// *  Media Quires mixin
+@mixin min-q($key) {
+  $size: map-get($breakpoints, $key);
+
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin max-q($key) {
+  $size: map-get($breakpoints, $key);
+
+  @media (max-width: $size) {
+    @content;
+  }
+}
+
+@mixin between-q($min, $max) {
+  $small: map-get($breakpoints, $min);
+  $large: map-get($breakpoints, $max);
+
+  @media (min-width: $small) and (max-width: $large) {
+    @content;
+  }
+}

@@ -1,0 +1,30 @@
+$primary-color: #008ccf;
+$secondary-color: #006190;
+$text-color :  #333;
+
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+$container : (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+);
+
+$colors : (
+  primary :  $primary-color,
+  secondary :  $secondary-color,
+  text :  $text-color,
+);
+
+
+$displayMap: inline block grid inline-block flex inline-flex none;
+$justifyMap: center start end space-between;
+$alignItemsMap: center start end;

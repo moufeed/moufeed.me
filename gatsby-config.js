@@ -6,7 +6,8 @@ module.exports = {
     siteUrl: "https://www.moufeed.me",
     phone: "+905353869746",
     email: "m.jobakji@hotmail.com",
-    name: "mofid ",
+    name: "moufeed",
+    siteTitle: "M−MOUFEED",
   },
   plugins: [
     `gatsby-plugin-sass`,
@@ -39,6 +40,13 @@ module.exports = {
         theme_color: `#4b6cc1`,
         display: `minimal-ui`,
         icon: `src/images/icon.jpg`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Josefin Sans\:300,600`],
+        display: "swap",
       },
     },
     `gatsby-plugin-gatsby-cloud`,
