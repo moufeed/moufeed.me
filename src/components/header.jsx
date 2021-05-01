@@ -1,10 +1,9 @@
 import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import { Link } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import useWindowSize from "../hooks/window-size"
-import { breakpoint } from "../constance"
-import MenuIcon from "../images/icons/menu.inline.svg"
+import { breakpoint } from "../data/constance"
+import MenuIcon from "../assets/images/icons/menu.inline.svg"
 const Header = ({ drawer }) => {
   let [width] = useWindowSize()
   const {
@@ -31,7 +30,7 @@ const Header = ({ drawer }) => {
           className="d-flex align-items-center mainHeader--logo--link"
         >
           <StaticImage
-            src="../images/icon.png"
+            src="../assets/images/icon.png"
             width={55}
             layout="fixed"
             quality={95}

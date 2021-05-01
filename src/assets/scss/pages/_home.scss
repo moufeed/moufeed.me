@@ -1,0 +1,17 @@
+@use '../abstracts' as *;
+.hero {
+  margin: calc(var(--padding) * 2) auto;
+  padding: var(--padding);
+  &--title {
+    grid-column: span 12;
+    margin-bottom: 1vmin;
+    font-size: clamp(1.2rem , 5vw , calc(var(--text-fs) * 2.2));
+  }
+  &--subtitle {
+    grid-column: span 12;
+    font-size: 1.5rem;
+    @include min-q(md) {
+      grid-column: span 7;
+    }
+  }
+}

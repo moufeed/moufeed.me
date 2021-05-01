@@ -1,6 +1,6 @@
 @use '../abstracts/' as *;
 .mainHeader {
-  padding: 2rem 1rem;
+  padding: calc(var(--padding) * 2) var(--padding);
   background-color: rgba(white, 0.8);
   backdrop-filter: blur(5px);
   &--logo {

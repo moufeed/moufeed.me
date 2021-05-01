@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
 import useWindowSize from "../hooks/window-size"
-import "../scss/style.scss"
+import "../assets/scss/style.scss"
 import Footer from "./footer"
 import Header from "./header"
-import { breakpoint } from "../constance"
+import { breakpoint } from "../data/constance"
 import Drawer from "./drawer"
 
 import PropTypes from "prop-types"
@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
     if (width > breakpoint && drawerOpened) {
       toggleDrawer()
     }
-  }, [width])
+  }, [width, drawerOpened])
 
   return (
     <>

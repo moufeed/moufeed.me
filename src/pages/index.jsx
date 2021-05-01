@@ -4,14 +4,21 @@ import React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
+import Hero from '../components/hero'
 
-
-const IndexPage   = () => (
+const IndexPage = () => (
   <Layout>
-    <Seo title="Home" />
+    <Seo title="Moufeed Jobakji" />
+    <Hero/>
+  </Layout>
+)
 
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
+export default IndexPage
+
+/*
+
+<StaticImage
+      src="../assets/images/gatsby-astronaut.png"
       width={300}
       quality={95}
       formats={["auto", "webp", "avif"]}
@@ -27,7 +34,4 @@ const IndexPage   = () => (
       <Link to="/project/">Go to page 2</Link> <br />
       <Link to="/projects/">Go to page 2</Link> <br />
     </p>
-  </Layout>
-)
-
-export default IndexPage
+    */

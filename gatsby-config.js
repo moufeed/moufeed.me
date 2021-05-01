@@ -1,3 +1,34 @@
+const menuLinks = [
+  {
+    label: "about",
+    url: "/about",
+  },
+  {
+    label: "portfolio",
+    url: "/portfolio",
+  },
+
+  {
+    label: "contacts",
+    url: "/contacts",
+  },
+]
+
+const socialLinks = [
+  {
+    label: "LinkedIn",
+    url: "/",
+  },
+  {
+    label: "Stackoverflow",
+    url: "/",
+  },
+  {
+    label: "Github",
+    url: "/",
+  },
+]
+
 const siteMetadata = {
   title: `Front-end Developer`,
   description: `Self-taught,Front-end Developer with 6+ years commercial experience creating successful websites.`,
@@ -5,22 +36,10 @@ const siteMetadata = {
   siteUrl: "https://www.moufeed.me",
   phone: "+905353869746",
   email: "m.jobakji@hotmail.com",
-  name: "moufeed",
+  name: "Mofid jobakji",
   siteTitle: "M−MOUFEED",
-  menuLinks: [
-    {
-      label: "home",
-      url: "/",
-    },
-    {
-      label: "projects",
-      url: "/projects",
-    },
-    {
-      label: "contacts",
-      url: "/contacts",
-    },
-  ],
+  menuLinks,
+  socialLinks,
 }
 
 const plugins = [
@@ -33,14 +52,14 @@ const plugins = [
     resolve: `gatsby-source-filesystem`,
     options: {
       name: `images`,
-      path: `${__dirname}/src/images`,
+      path: `${__dirname}/src/assets/images`,
     },
   },
   {
     resolve: `gatsby-source-filesystem`,
     options: {
       name: `projects`,
-      path: `${__dirname}/src/projects`,
+      path: `${__dirname}/src/content/projects`,
     },
   },
   `gatsby-transformer-sharp`,
@@ -54,7 +73,7 @@ const plugins = [
       background_color: `#4b6cc1`,
       theme_color: `#4b6cc1`,
       display: `minimal-ui`,
-      icon: `src/images/icon.jpg`,
+      icon: `src/assets/images/icon.jpg`,
     },
   },
   {
