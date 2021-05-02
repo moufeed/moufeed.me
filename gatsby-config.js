@@ -93,7 +93,7 @@ const plugins = [
       display: "swap",
     },
   },
-  {
+  /* {
     resolve: "gatsby-plugin-react-svg",
     options: {
       rule: {
@@ -106,7 +106,7 @@ const plugins = [
         },
       },
     },
-  },
+  }, */
   `gatsby-plugin-gatsby-cloud`,
   `gatsby-plugin-offline`,
 ]

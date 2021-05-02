@@ -1,0 +1,68 @@
+@use '../abstracts/' as *;
+
+.portfolio-page {
+  margin-top: 3rem;
+  padding: var(--padding);
+  &--header {
+    margin-bottom: 3rem;
+    &--title {
+    }
+    &--excerpt {
+      font-size: calc(var(--text-fs) * 1.1);
+      @include min-q(md) {
+        width: 60%;
+      }
+    }
+  }
+
+  &--gallery {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    //grid-template-rows: 300px;
+    &--item {
+      overflow-X: hidden;
+      position: relative;
+      height: 100%;
+      width: 100%;
+      display: block;
+      color: var(--text-color);
+
+      span {
+        z-index: 2;
+        position: absolute;
+        display: block;
+        bottom: 5%;
+        right: 0;
+        color: var(--text-color);
+        padding: 15px;
+        background-color: white;
+        font-size: 14px;
+        z-index: 3;
+        transition: all .3s;
+        transform: translateX(100%);
+      }
+      .number{
+        position: absolute;
+        top: -35px;
+        left: 0;
+        z-index: 5;
+        color: white;
+        font-size: 4rem;
+        font-weight: bolder;
+        //text-shadow: 3px 3px 15px rgb(74 74 74 / 60%);
+        transition: all .3s;
+        transform: rotate(-14deg);
+      }
+      &:hover {
+
+        span {
+          transform: translateX(0);
+        }
+        .number{
+          color: var(--color-secondary);
+        }
+      }
+    }
+  }
+}

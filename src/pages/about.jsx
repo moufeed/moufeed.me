@@ -12,9 +12,9 @@ const About = ({data}) => {
     ["React js", 60],
     ["Asp.net core", 50],
     ["Angular", 60],
-    ["TypeScript", 60],
+    ["TypeScript", 55],
     ["Angular js", 50],
-    ["sass", 80],
+    ["Sass", 80],
   ]
 
   return (
@@ -37,13 +37,16 @@ const About = ({data}) => {
 
             <p>
               My primary area of experience in front-end development, but in
-              general, I am interested in Flutter, along with some React Native
-              too.
+              general, I am interested in
+                <strong className="text-darken"> Flutter</strong> , along with some
+              <strong className="text-darken">React Native</strong> too.
             </p>
             <br />
             <p>
               I can quickly and efficiently join your team using
-              continuous-integration methods and tools such as Git and Agile.
+              continuous-integration methods and tools such as
+              <strong className="text-darken">Git</strong> and
+              <strong className="text-darken">Agile</strong>.
             </p>
           </div>
           <br />
@@ -64,13 +67,27 @@ const About = ({data}) => {
             <p>
               This is a list of my foundational front-end development skills.
               I'm also familiar with many tools and frameworks that fall under
-              these main categories
+              these main categories, like{" "}
+              <strong className="text-darken">jquery</strong> ,
+              <strong className="text-darken">Handlebar</strong> ,{" "}
+              <strong className="text-darken">Webpack</strong> ,
+              <strong className="text-darken">Gulp</strong> and{" "}
+              <strong className="text-darken">Less</strong>
             </p>
             <br />
-
-            <a href={data.file.publicURL} target="_blank" className="btn btn-primary">
-              see resume
-            </a>
+            <p>also , familiar with Adobe Photoshop ,xd and Illustrator.</p>
+            <br />
+            <p>
+              download my{" "}
+              <a
+                rel="noreferrer"
+                href={data.file.publicURL}
+                target="_blank"
+                className="btn btn-primary"
+              >
+                resume
+              </a>
+            </p>
           </div>
         </div>
       </div>

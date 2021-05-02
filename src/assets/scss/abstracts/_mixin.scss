@@ -11,7 +11,7 @@
 @mixin column($count) {
   @for $i from 1 through $count {
     .col-#{$i} {
-      grid-column: span $i;
+      grid-column: span $i / auto;
     }
   }
 }
@@ -19,7 +19,7 @@
 @mixin row($count) {
   @for $i from 1 through $count {
     .row-#{$i} {
-      grid-column: span $i;
+      grid-column: span $i / auto;
     }
   }
 }

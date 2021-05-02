@@ -4,8 +4,8 @@ slug: gulf-elevators
 stack : front-end development
 excerpt: some text about gulf-elevators
 featureImage :  ../../assets/images/featured-placeholder.jpg
-thumb :  ../../assets/images/thumb-placeholder.png
+thumb :  ../../assets/images/works/amwalouna.jpg
 featured : false
-url: false
+url: http://www.gulfelevators.com/
 date :  false
 ---
