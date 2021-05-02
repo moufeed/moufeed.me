@@ -4,7 +4,7 @@ import Layout from '../components/layout';
 export default function projectDetails({data}) {
 
   const { markdownRemark :project } = data;
-  console.log("project", project);
+
   return (
     <Layout>
       project details

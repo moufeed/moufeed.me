@@ -24,45 +24,47 @@ const Header = ({ drawer }) => {
 
   return (
     <header className="mainHeader container">
-      <div className="mainHeader--logo ">
-        <Link
-          to="/"
-          className="d-flex align-items-center mainHeader--logo--link"
-        >
-          <StaticImage
-            src="../assets/images/icon.png"
-            width={55}
-            layout="fixed"
-            quality={95}
-            formats={["AUTO", "WEBP", "AVIF"]}
-            alt="moufeed logo"
-          />
-          <strong className="d-inline text-dark">{siteData.siteTitle}</strong>
-        </Link>
-      </div>
-      {width > breakpoint ? (
-        <div className="mainHeader--nav d-flex justify-flex-end">
-          <nav className="mainNavigation d-flex align-items-center">
-            {siteData.menuLinks.map((link, index) => (
-              <Link
-                to={link.url}
-                key={index}
-                className="mainNavigation--link"
-                activeClassName="active"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+      <div className="grid">
+        <div className="mainHeader--logo ">
+          <Link
+            to="/"
+            className="d-flex align-items-center mainHeader--logo--link"
+          >
+            <StaticImage
+              src="../assets/images/icon.png"
+              width={55}
+              layout="fixed"
+              quality={95}
+              formats={["AUTO", "WEBP", "AVIF"]}
+              alt="moufeed logo"
+            />
+            <strong className="d-inline text-dark">{siteData.siteTitle}</strong>
+          </Link>
         </div>
-      ) : (
-        <button
-          onClick={event => drawer()}
-          className="btn mainHeader--button no-border"
-        >
-          <MenuIcon />
-        </button>
-      )}
+        {width > breakpoint ? (
+          <div className="mainHeader--nav d-flex justify-flex-end">
+            <nav className="mainNavigation d-flex align-items-center">
+              {siteData.menuLinks.map((link, index) => (
+                <Link
+                  to={link.url}
+                  key={index}
+                  className="mainNavigation--link"
+                  activeClassName="active"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+        ) : (
+          <button
+            onClick={event => drawer()}
+            className="btn mainHeader--button no-border"
+          >
+            <MenuIcon />
+          </button>
+        )}
+      </div>
     </header>
   )
 }

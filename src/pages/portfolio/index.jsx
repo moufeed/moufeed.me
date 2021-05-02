@@ -1,6 +1,6 @@
-import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby";
-import Img from "gatsby-image"
+import { graphql, Link } from "gatsby";
+import Img from "gatsby-image";
+import React from "react";
 const ProjectsPage = ({data}) => {
 
 
@@ -8,7 +8,7 @@ const ProjectsPage = ({data}) => {
     projects: { nodes: projects },
     contacts: { siteMetadata: contacts },
   } = data
-  console.log(projects, contacts)
+
 
   return (
     <div>

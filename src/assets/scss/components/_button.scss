@@ -17,4 +17,11 @@
   &:hover {
     border-color: var(--color-border-hover);
   }
+
+}
+
+.btn-primary{
+    text-decoration: none;
+    color:  var(--color-primary);
+    border-color:  var(--color-primary);
 }

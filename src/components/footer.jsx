@@ -24,7 +24,7 @@ const Footer = () => {
       }
     }
   `)
-  console.log(author, menuLinks, socialLinks)
+
   return (
     <>
       <footer className="mainFooter container">

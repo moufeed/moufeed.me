@@ -7,7 +7,7 @@ const Contacts = ({
     site: { siteMetadata: contact },
   },
 }) => {
-  console.log("contact", contact)
+
   return (
     <Layout>
       <Seo title="contacts us" />

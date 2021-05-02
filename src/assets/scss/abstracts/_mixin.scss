@@ -8,6 +8,22 @@
   }
 }
 
+@mixin column($count) {
+  @for $i from 1 through $count {
+    .col-#{$i} {
+      grid-column: span $i;
+    }
+  }
+}
+
+@mixin row($count) {
+  @for $i from 1 through $count {
+    .row-#{$i} {
+      grid-column: span $i;
+    }
+  }
+}
+
 @mixin justify {
   @each $justify in $justifyMap {
     .justify-#{$justify} {
@@ -47,5 +63,22 @@
 
   @media (min-width: $small) and (max-width: $large) {
     @content;
+  }
+}
+
+@mixin scroll($color : #555, $hover : #888, $background :#f1f1f1, $width : 10px) {
+  ::-webkit-scrollbar {
+    width: $width;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $color ;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: $hover ;
   }
 }

@@ -18,14 +18,17 @@ const socialLinks = [
   {
     label: "LinkedIn",
     url: "/",
+    icon: "icons/linkedin.png",
   },
   {
     label: "Stackoverflow",
     url: "/",
+    icon: "icons/stack-overflow.png",
   },
   {
     label: "Github",
     url: "/",
+    icon: "icons/github.png",
   },
 ]
 
@@ -62,6 +65,13 @@ const plugins = [
       path: `${__dirname}/src/content/projects`,
     },
   },
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: `files`,
+      path: `${__dirname}/src/assets/files`,
+    },
+  },
   `gatsby-transformer-sharp`,
   `gatsby-plugin-sharp`,
   {
@@ -79,7 +89,7 @@ const plugins = [
   {
     resolve: `gatsby-plugin-google-fonts`,
     options: {
-      fonts: [`Josefin Sans\:300,600`],
+      fonts: [`Josefin Sans\:300,400,600`],
       display: "swap",
     },
   },
