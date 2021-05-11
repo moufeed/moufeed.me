@@ -50,7 +50,24 @@ const plugins = [
   `gatsby-plugin-sass`,
   `gatsby-plugin-react-helmet`,
   `gatsby-plugin-image`,
-  `gatsby-transformer-remark`,
+  `gatsby-transformer-sharp`,
+  `gatsby-plugin-sharp`,
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [
+        {
+          resolve: `gatsby-remark-images`,
+          options: {
+            linkImagesToOriginal: false,
+            withWebp: true,
+            maxWidth: 960,
+            quality: 100,
+          },
+        },
+      ],
+    },
+  },
   {
     resolve: `gatsby-source-filesystem`,
     options: {
@@ -61,8 +78,15 @@ const plugins = [
   {
     resolve: `gatsby-source-filesystem`,
     options: {
-      name: `projects`,
-      path: `${__dirname}/src/content/projects`,
+      name: `content`,
+      path: `${__dirname}/src/content`,
+    },
+  },
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: `pages`,
+      path: `${__dirname}/src/pages`,
     },
   },
   {
@@ -72,8 +96,6 @@ const plugins = [
       path: `${__dirname}/src/assets/files`,
     },
   },
-  `gatsby-transformer-sharp`,
-  `gatsby-plugin-sharp`,
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
@@ -89,7 +111,7 @@ const plugins = [
   {
     resolve: `gatsby-plugin-google-fonts`,
     options: {
-      fonts: [`Josefin Sans\:300,400,600`],
+      fonts: [`Josefin Sans\:200,400,700`],
       display: "swap",
     },
   },

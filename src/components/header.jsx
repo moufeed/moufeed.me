@@ -61,7 +61,7 @@ const Header = ({ drawer }) => {
             onClick={event => drawer()}
             className="btn mainHeader--button no-border"
           >
-            <img src={MenuIcon}  width="30" height="30"/>
+            <img src={MenuIcon}  width="30" height="30" alt="menu icon"/>
           </button>
         )}
       </div>

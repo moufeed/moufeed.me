@@ -4,7 +4,7 @@ import Seo from "../components/seo"
 import Progress from '../components/progress'
 import { graphql } from "gatsby"
 const About = ({data}) => {
-  console.log(data)
+
   const skills = [
     ["HTML", 90],
     ["CSS", 90],

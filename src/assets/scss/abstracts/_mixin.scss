@@ -19,7 +19,7 @@
 @mixin row($count) {
   @for $i from 1 through $count {
     .row-#{$i} {
-      grid-column: span $i / auto;
+      grid-row: span $i / auto;
     }
   }
 }

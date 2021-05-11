@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from "gatsby";
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 const Image = ({ src, ...rest }) => {
 
   const data = useStaticQuery(
@@ -12,19 +12,18 @@ const Image = ({ src, ...rest }) => {
               extension
               relativePath
               childImageSharp {
-                fluid(maxWidth: 1000) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(layout: CONSTRAINED)
               }
             }
           }
         }
       }
     `
-  )
-  const image = data.images.edges.find(image => image.node.relativePath === src)
+  );
 
-  return <Img fluid={image.node.childImageSharp.fluid} {...rest}/>
+  const image = data.images.edges.find(image => image.node.relativePath === src)
+  const ImageData = getImage(image.node)
+  return <GatsbyImage image={ImageData} alt="" {...rest} />
 }
 
 
