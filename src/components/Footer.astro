@@ -1,5 +1,6 @@
 ---
 import { site } from "../data/site"
+import { copy } from "../data/copy"
 
 const year = new Date().getFullYear()
 ---
@@ -42,7 +43,7 @@ const year = new Date().getFullYear()
         href={`https://twitter.com/${site.author}`}
         target="_blank"
         rel="noreferrer"
-        title="Connect with me on Twitter"
+        title={copy.a11y.twitterConnect}
         class="type-2 mainFooter--twitter"
       >
         {site.author}
@@ -51,5 +52,5 @@ const year = new Date().getFullYear()
   </div>
 </footer>
 <div class="container d-flex justify-center">
-  Copyright © {site.siteTitle} {year}
+  {copy.footer.copyrightPrefix} {site.siteTitle} {year}
 </div>

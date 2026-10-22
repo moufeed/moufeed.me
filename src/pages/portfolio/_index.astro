@@ -3,6 +3,8 @@
 import { Image } from "astro:assets"
 import { getCollection } from "astro:content"
 import Layout from "../../layouts/Layout.astro"
+import { site } from "../../data/site"
+import { copy } from "../../data/copy"
 
 const projects = (await getCollection("projects")).sort(
   (a, b) =>
@@ -10,13 +12,11 @@ const projects = (await getCollection("projects")).sort(
 )
 ---
 
-<Layout title="Portfolio">
+<Layout title={copy.portfolio.pageTitle}>
   <div class="container portfolio-page">
     <header class="portfolio-page--header">
-      <h1 class="portfolio-page--header--title">Portfolio</h1>
-      <p class="portfolio-page--header--excerpt">
-        Commercial sites built for speed, clear navigation, and careful design.
-      </p>
+      <h1 class="portfolio-page--header--title">{copy.portfolio.heading}</h1>
+      <p class="portfolio-page--header--excerpt">{copy.portfolio.excerpt}</p>
     </header>
 
     <div class="portfolio-page--gallery">
@@ -52,7 +52,7 @@ const projects = (await getCollection("projects")).sort(
     </div>
 
     <p class="portfolio-page--footer">
-      <a class="btn btn-primary" href="/contacts">Contacts</a>
+      <a class="btn btn-primary" href={site.contactUrl}>{site.contactLabel}</a>
     </p>
   </div>
 </Layout>

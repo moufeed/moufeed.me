@@ -1,0 +1,82 @@
+---
+import { copy } from "../data/copy"
+import { experience } from "../data/experience"
+---
+
+<section id="experience" class="experience" aria-labelledby="experience-heading">
+  <div class="experience--inner container">
+    <header class="experience--header">
+      <h2 id="experience-heading" class="experience--heading">
+        {copy.home.experienceHeading}
+      </h2>
+      <p class="experience--lede">{copy.home.experienceLede}</p>
+    </header>
+
+    <ol class="experience--list">
+      {
+        experience.map((job, index) => (
+          <li
+            class:list={[
+              "experience--item",
+              { "experience--item--current": job.current },
+            ]}
+            style={`--i: ${index}`}
+          >
+            <div class="experience--marker" aria-hidden="true" />
+            <div class="experience--body">
+              <div class="experience--meta">
+                <h3 class="experience--role">{job.role}</h3>
+                <p class="experience--company">
+                  {job.companyUrl ? (
+                    <a
+                      href={job.companyUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {job.company}
+                    </a>
+                  ) : (
+                    job.company
+                  )}
+                  {job.employmentType && (
+                    <>
+                      <span class="experience--sep" aria-hidden="true">
+                        ·
+                      </span>
+                      <span class="experience--type">{job.employmentType}</span>
+                    </>
+                  )}
+                </p>
+                <p class="experience--dates">
+                  <time>{job.start}</time>
+                  {" - "}
+                  <time>{job.end}</time>
+                  {job.location && (
+                    <>
+                      <span class="experience--sep" aria-hidden="true">
+                        ·
+                      </span>
+                      <span class="experience--location">{job.location}</span>
+                    </>
+                  )}
+                </p>
+              </div>
+              <div class="experience--content">
+                {job.summary && (
+                  <p class="experience--summary">{job.summary}</p>
+                )}
+                {job.skills?.length > 0 && (
+                  <ul class="experience--skills">
+                    {job.skills.map((skill) => (
+                      <li>{skill}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

@@ -1,4 +1,3 @@
-
 $breakpoints: (
   sm: 576px,
   md: 768px,
@@ -17,24 +16,22 @@ $container: (
 $colors: (
   primary: #008ccf,
   secondary: #006190,
-  text:  #333,
-  drawer-overlay : rgba(black, 0.5),
-  drawer-background:white,
-  border : #dbdbdb,
-  border-hover : #b5b5b5,
-  primary-invert : #fff,
-  dark-overlay:rgba(0, 0, 0, 0.4)
+  text: #333,
+  drawer-overlay: rgba(black, 0.5),
+  drawer-background: white,
+  border: #dbdbdb,
+  border-hover: #b5b5b5,
+  primary-invert: #fff,
+  dark-overlay: rgba(0, 0, 0, 0.4),
 );
 
-
- $roots : (
-      container: 100%,
-      gap: 1rem,
-      menu-width : 320px,
-      text-fs : 1rem,
-      padding : 1rem
- );
-
+$roots: (
+  container: 100%,
+  gap: 1rem,
+  menu-width: 320px,
+  text-fs: 1rem,
+  padding: 1rem,
+);
 
 $displayMap: inline block grid inline-block flex inline-flex none;
 $justifyMap: center start end space-between flex-end flex-start;

@@ -3,6 +3,7 @@ import { Image } from "astro:assets"
 import { getCollection, render } from "astro:content"
 import Layout from "../../layouts/Layout.astro"
 import ScrollTop from "../../components/ScrollTop.jsx"
+import { copy } from "../../data/copy"
 
 export async function getStaticPaths() {
   const projects = (await getCollection("projects")).sort(
@@ -57,28 +58,28 @@ const hasUrl = Boolean(data.url && data.url.trim())
       </main>
       <aside class="dp--content--aside">
         <div>
-          <h3 class="dp--content--aside--title">Technical Sheet</h3>
+          <h3 class="dp--content--aside--title">{copy.project.technicalSheet}</h3>
           <ul class="dp--content--aside--tools">
             {data.tools?.map((tool) => <li>{tool}</li>)}
           </ul>
         </div>
         <div class="dp--content--aside--properties">
           <div>
-            <h4>ORG</h4>
+            <h4>{copy.project.org}</h4>
             {data.org}
           </div>
 
           {
             year && !Number.isNaN(year) && (
               <div>
-                <h4>YEAR</h4>
+                <h4>{copy.project.year}</h4>
                 {year}
               </div>
             )
           }
 
           <div>
-            <h4>WWW</h4>
+            <h4>{copy.project.www}</h4>
             {
               hasUrl ? (
                 <a
@@ -87,10 +88,10 @@ const hasUrl = Boolean(data.url && data.url.trim())
                   rel="noreferrer"
                   class="dp--content--aside---link"
                 >
-                  Visit site
+                  {copy.project.visitSite}
                 </a>
               ) : (
-                "Offline"
+                copy.project.offline
               )
             }
           </div>
@@ -125,13 +126,13 @@ const hasUrl = Boolean(data.url && data.url.trim())
     </div>
 
     <div class="dp--transition">
-      {(prev || next) && <h2>See More Projects</h2>}
+      {(prev || next) && <h2>{copy.project.seeMore}</h2>}
       <br />
       <div class="d-flex justify-center align-items-center">
         {
           prev && (
             <a href={`/portfolio/${prev}`} class="btn dp--transition-link">
-              <span class="arrow-left">←</span> Previous
+              <span class="arrow-left">←</span> {copy.project.previous}
             </a>
           )
         }
@@ -145,7 +146,7 @@ const hasUrl = Boolean(data.url && data.url.trim())
         {
           next && (
             <a href={`/portfolio/${next}`} class="btn dp--transition-link">
-              next
+              {copy.project.next}
               <span class="arrow-right">→</span>
             </a>
           )

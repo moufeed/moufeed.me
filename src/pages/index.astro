@@ -1,10 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import Hero from "../components/Hero.astro"
+import Experience from "../components/Experience.astro"
+import { site } from "../data/site"
 ---
 
-<Layout title="Mofid juboqji">
+<Layout title={site.name}>
   <div class="homePage">
     <Hero />
+    <Experience />
   </div>
 </Layout>

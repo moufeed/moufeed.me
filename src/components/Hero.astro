@@ -1,20 +1,20 @@
 ---
 import { site } from "../data/site"
+import { copy } from "../data/copy"
 ---
 
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero--inner container">
     <p class="hero--role">{site.title}</p>
     <h1 id="hero-title" class="hero--title">
-      Hello, my name is <span class="hero--name">{site.name}</span>
+      {copy.home.greetingBefore}
+      {" "}
+      <span class="hero--name">{site.name}</span>
     </h1>
-    <p class="hero--subtitle">
-      Front-end developer with 6+ years building fast, clear websites. Based in
-      Istanbul.
-    </p>
+    <p class="hero--subtitle">{copy.home.subtitle}</p>
     <div class="hero--actions">
-      {/* <a class="btn btn-fill" href="/portfolio">View portfolio</a> */}
-      <a class="btn btn-fill" href="/contacts">Contacts</a>
+      {/* <a class="btn btn-fill" href="/portfolio">{copy.home.portfolioCta}</a> */}
+      <a class="btn btn-fill" href={site.contactUrl}>{site.contactLabel}</a>
     </div>
   </div>
 </section>

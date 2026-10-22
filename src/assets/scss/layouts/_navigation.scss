@@ -1,31 +1,88 @@
 .mainNavigation {
+  flex-wrap: nowrap;
+  gap: 0.15rem;
+  min-width: 0;
+
   &--link {
+    flex: 0 0 auto;
     color: var(--color-primary);
     position: relative;
     display: block;
-    padding: 0.4em 0.6em;
+    padding: 0.35em 0.45em;
     text-decoration: none;
     font-weight: 700;
-    text-transform: capitalize;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    text-transform: none;
 
     &::after {
       content: "";
       position: absolute;
-      left: 0.6em;
+      left: 0.45em;
       bottom: 0;
-      right: 0.6em;
-      height: .10em;
+      right: 0.45em;
+      height: 0.1em;
       background-color: currentColor;
       transform: scaleX(0);
       transform-origin: 100% 50%;
       transition: transform 0.2s;
     }
-    &:hover ,  &.active{
+
+    &:hover,
+    &.active {
       color: var(--color-secondary);
 
-        &::after {
-           transform: scaleX(1);
-        }
+      &::after {
+        transform: scaleX(1);
+      }
     }
+  }
+
+  &--resume.btn {
+    box-sizing: border-box;
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.35rem;
+    height: 1.75rem;
+    min-height: 1.75rem;
+    padding: 0 0.65rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.015em;
+    line-height: 1;
+    white-space: nowrap;
+    text-decoration: none;
+    border-radius: 2px;
+    border: 1px solid var(--color-primary);
+    background-color: transparent;
+    color: var(--color-primary);
+    box-shadow: none;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      border-color: var(--color-secondary);
+      background-color: transparent;
+      color: var(--color-secondary);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+  }
+
+  &--resume-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    line-height: 1;
+    transform: translateY(0.05em);
   }
 }
