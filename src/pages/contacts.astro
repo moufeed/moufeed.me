@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro"
+import { site } from "../data/site"
+---
+
+<Layout title="Contact">
+  <div class="container contact-page">
+    <div class="contact-page--panel">
+      <h1 class="contact-page--title">Get in touch</h1>
+      <p class="contact-page--lede">
+        Send a message or project details and I will reply as soon as I can.
+      </p>
+
+      <div class="contact-page--channels">
+        <a
+          class="contact-page--email btn btn-fill"
+          href={`mailto:${site.email}?Subject=Visitor Message`}
+        >
+          {site.email}
+        </a>
+
+        <ul class="contact-page--social list-style-none">
+          {
+            site.socialLinks.map((item) => (
+              <li>
+                <a href={item.url} target="_blank" rel="noreferrer">
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+          <li>
+            <a
+              href={`https://twitter.com/${site.author}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Twitter
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,55 @@
+---
+import { site } from "../data/site"
+
+const year = new Date().getFullYear()
+---
+
+<footer class="mainFooter container">
+  <div>
+    <ul class="list-style-none">
+      {
+        site.menuLinks.map((item) => (
+          <li>
+            <a href={item.url} class="type-2 mainFooter--link ">
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div>
+    <ul class="list-style-none">
+      {
+        site.socialLinks.map((item) => (
+          <li>
+            <a
+              href={item.url}
+              target="_blank"
+              class="type-2 mainFooter--link"
+              rel="noreferrer"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div>
+    <nav>
+      <a
+        href={`https://twitter.com/${site.author}`}
+        target="_blank"
+        rel="noreferrer"
+        title="Connect with me on Twitter"
+        class="type-2 mainFooter--twitter"
+      >
+        {site.author}
+      </a>
+    </nav>
+  </div>
+</footer>
+<div class="container d-flex justify-center">
+  Copyright © {site.siteTitle} {year}
+</div>

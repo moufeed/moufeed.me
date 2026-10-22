@@ -20,15 +20,36 @@
 
 }
 
-.btn-primary{
-    text-decoration: none;
-    color:  var(--color-primary);
-    border-color:  var(--color-primary);
+.btn-primary {
+  text-decoration: none;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+
+  &:hover {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+  }
 }
 
+.btn-fill {
+  text-decoration: none;
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: var(--color-primary-invert);
 
-.btn-backTop{
-    position: fixed;
-    bottom: 2vw;
-    right: 2vw;
+  &:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-primary-invert);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.btn-backTop {
+  position: fixed;
+  bottom: 2vw;
+  right: 2vw;
 }

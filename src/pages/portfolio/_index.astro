@@ -1,0 +1,58 @@
+---
+// Route /portfolio disabled (file prefixed with _). Rename to index.astro to restore.
+import { Image } from "astro:assets"
+import { getCollection } from "astro:content"
+import Layout from "../../layouts/Layout.astro"
+
+const projects = (await getCollection("projects")).sort(
+  (a, b) =>
+    a.data.order - b.data.order || a.data.title.localeCompare(b.data.title)
+)
+---
+
+<Layout title="Portfolio">
+  <div class="container portfolio-page">
+    <header class="portfolio-page--header">
+      <h1 class="portfolio-page--header--title">Portfolio</h1>
+      <p class="portfolio-page--header--excerpt">
+        Commercial sites built for speed, clear navigation, and careful design.
+      </p>
+    </header>
+
+    <div class="portfolio-page--gallery">
+      {
+        projects.map((project, index) => (
+          <a
+            href={`/portfolio/${project.data.slug}`}
+            class="portfolio-page--gallery--item"
+            style={`--i: ${index}`}
+          >
+            <div class="portfolio-page--gallery--media">
+              <Image
+                src={project.data.thumb}
+                alt={project.data.title}
+                widths={[400, 720, 960]}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                class="portfolio-page--gallery--image"
+              />
+            </div>
+            <div class="portfolio-page--gallery--meta">
+              <span class="portfolio-page--gallery--name">
+                {project.data.title}
+              </span>
+              {project.data.stack && (
+                <p class="portfolio-page--gallery--stack">
+                  {project.data.stack}
+                </p>
+              )}
+            </div>
+          </a>
+        ))
+      }
+    </div>
+
+    <p class="portfolio-page--footer">
+      <a class="btn btn-primary" href="/contacts">Contacts</a>
+    </p>
+  </div>
+</Layout>

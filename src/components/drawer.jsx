@@ -1,55 +1,29 @@
 import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql, Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { site } from "../data/site"
 
-import Image from './image';
 const Drawer = ({ opened, close }) => {
-  const {
-    site: { siteMetadata: siteData },
-  } = useStaticQuery(graphql`
-    query SiteQuery {
-      site {
-        siteMetadata {
-          socialLinks {
-            url
-            label
-            icon
-          }
-          author
-          siteTitle
-          menuLinks {
-            label
-            url
-          }
-        }
-      }
-    }
-  `)
-
   return (
-    <div className={`drawer  ${opened ? "opened" : null}`}>
+    <div className={`drawer  ${opened ? "opened" : ""}`}>
       <div className="drawer--container">
         <div className="drawer--social">
           <ul className="list-style-none drawer--social-list">
             <li>
               <a
-                href={`https://twitter.com/${siteData.author}`}
+                href={`https://twitter.com/${site.author}`}
                 target="_blank"
                 rel="noreferrer"
                 title="Connect with me on Twitter"
                 className="drawer--social-list--link"
               >
-                <StaticImage
-                  src="../assets/images/icons/twitter.png"
+                <img
+                  src="/icons/twitter.png"
                   width={24}
-                  layout="fixed"
-                  formats={["AUTO", "WEBP", "AVIF"]}
-                  alt="close drawer"
+                  height={24}
+                  alt="Twitter"
                 />
               </a>
             </li>
-            {siteData.socialLinks.map((item, index) => (
+            {site.socialLinks.map((item, index) => (
               <li key={index}>
                 <a
                   href={item.url}
@@ -57,17 +31,21 @@ const Drawer = ({ opened, close }) => {
                   className="drawer--social-list--link"
                   rel="noreferrer"
                 >
-                  <Image src={item.icon} />
+                  <img
+                    src={`/icons/${item.icon}`}
+                    width={24}
+                    height={24}
+                    alt={item.label}
+                  />
                 </a>
               </li>
             ))}
           </ul>
-          <button className="btn no-border" onClick={e => close(false)}>
-            <StaticImage
-              src="../assets/images/icons/delete.png"
+          <button className="btn no-border" onClick={() => close(false)}>
+            <img
+              src="/icons/delete.png"
               width={24}
-              layout="fixed"
-              formats={["AUTO", "WEBP", "AVIF"]}
+              height={24}
               alt="close drawer"
             />
           </button>
@@ -75,15 +53,15 @@ const Drawer = ({ opened, close }) => {
 
         <ul className="list-style-none drawer--list ">
           <li>
-            <Link to="/" className="type-2 drawer--list--link ">
+            <a href="/" className="type-2 drawer--list--link ">
               home
-            </Link>
+            </a>
           </li>
-          {siteData.menuLinks.map((item, index) => (
+          {site.menuLinks.map((item, index) => (
             <li key={index}>
-              <Link to={item.url} className="type-2 drawer--list--link ">
+              <a href={item.url} className="type-2 drawer--list--link ">
                 {item.label}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>
@@ -91,15 +69,10 @@ const Drawer = ({ opened, close }) => {
       <div
         aria-hidden="true"
         className="drawer--overlay"
-        onClick={e => close(false)}
+        onClick={() => close(false)}
       ></div>
     </div>
   )
-}
-
-Drawer.propTypes = {
-  close: PropTypes.func.isRequired,
-  opened: PropTypes.bool.isRequired,
 }
 
 export default Drawer

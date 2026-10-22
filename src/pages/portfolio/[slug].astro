@@ -1,0 +1,156 @@
+---
+import { Image } from "astro:assets"
+import { getCollection, render } from "astro:content"
+import Layout from "../../layouts/Layout.astro"
+import ScrollTop from "../../components/ScrollTop.jsx"
+
+export async function getStaticPaths() {
+  const projects = (await getCollection("projects")).sort(
+    (a, b) =>
+      a.data.order - b.data.order ||
+      a.data.title.localeCompare(b.data.title)
+  )
+
+  return projects.map((project, index) => ({
+    params: { slug: project.data.slug },
+    props: {
+      project,
+      prev: index === 0 ? null : projects[index - 1].data.slug,
+      next:
+        index === projects.length - 1 ? null : projects[index + 1].data.slug,
+    },
+  }))
+}
+
+const { project, prev, next } = Astro.props
+const { Content } = await render(project)
+const { data } = project
+
+const year = data.date ? new Date(data.date).getFullYear() : null
+const hasUrl = Boolean(data.url && data.url.trim())
+---
+
+<Layout title={data.title} description={data.excerpt}>
+  <ScrollTop client:visible showBelow={250} />
+  <section class="dp container">
+    <div class="dp--header">
+      <div class="dp--header-content">
+        <h1>{data.title}</h1>
+        <p>{data.excerpt}</p>
+      </div>
+    </div>
+
+    <div class="dp--content">
+      <main class="dp--content--main">
+        <Image
+          src={data.preview}
+          class="dp--content--main--image"
+          alt={data.title}
+          widths={[640, 960, 1280]}
+          sizes="(max-width: 960px) 100vw, 960px"
+        />
+        {
+          data.brief && (
+            <p class="dp--content--main--brief">{data.brief}</p>
+          )
+        }
+      </main>
+      <aside class="dp--content--aside">
+        <div>
+          <h3 class="dp--content--aside--title">Technical Sheet</h3>
+          <ul class="dp--content--aside--tools">
+            {data.tools?.map((tool) => <li>{tool}</li>)}
+          </ul>
+        </div>
+        <div class="dp--content--aside--properties">
+          <div>
+            <h4>ORG</h4>
+            {data.org}
+          </div>
+
+          {
+            year && !Number.isNaN(year) && (
+              <div>
+                <h4>YEAR</h4>
+                {year}
+              </div>
+            )
+          }
+
+          <div>
+            <h4>WWW</h4>
+            {
+              hasUrl ? (
+                <a
+                  href={data.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  class="dp--content--aside---link"
+                >
+                  Visit site
+                </a>
+              ) : (
+                "Offline"
+              )
+            }
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    {
+      data.fullPreview && (
+        <div class="dp--full-preview">
+          <figure class="browser dp--full-preview--browser">
+            <div class="browser--actions">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="browser--inner">
+              <Image
+                src={data.fullPreview}
+                alt={data.title}
+                widths={[800, 1200, 1600]}
+                sizes="100vw"
+              />
+            </div>
+          </figure>
+        </div>
+      )
+    }
+
+    <div class="dp--html">
+      <Content />
+    </div>
+
+    <div class="dp--transition">
+      {(prev || next) && <h2>See More Projects</h2>}
+      <br />
+      <div class="d-flex justify-center align-items-center">
+        {
+          prev && (
+            <a href={`/portfolio/${prev}`} class="btn dp--transition-link">
+              <span class="arrow-left">←</span> Previous
+            </a>
+          )
+        }
+
+        {/* Portfolio listing route commented out
+        <a href="/portfolio" class="btn dp--transition-link--grid">
+          <img src="/icons/menu.png" width="32" height="32" alt="menu" />
+        </a>
+        */}
+
+        {
+          next && (
+            <a href={`/portfolio/${next}`} class="btn dp--transition-link">
+              next
+              <span class="arrow-right">→</span>
+            </a>
+          )
+        }
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,67 +1,54 @@
 import * as React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 import useWindowSize from "../hooks/window-size"
-import { breakpoint } from "../data/constance"
-import MenuIcon from "../assets/images/icons/menu.inline.svg"
+import { breakpoint, site } from "../data/site"
+
 const Header = ({ drawer }) => {
-  let [width] = useWindowSize()
-  const {
-    site: { siteMetadata: siteData },
-  } = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          siteTitle
-          menuLinks {
-            label
-            url
-          }
-        }
-      }
-    }
-  `)
+  const [width] = useWindowSize()
 
   return (
     <header className="mainHeader container">
       <div className="grid">
         <div className="mainHeader--logo ">
-          <Link
-            to="/"
+          <a
+            href="/"
             className="d-flex align-items-center mainHeader--logo--link"
           >
-            <StaticImage
-              src="../assets/images/icon.png"
+            <img
+              src="/icon.png"
               width={55}
-              layout="fixed"
-              quality={95}
-              formats={["AUTO", "WEBP", "AVIF"]}
-              alt="moufeed logo"
+              height={55}
+              alt="mofid logo"
             />
-            <strong className="d-inline text-dark">{siteData.siteTitle}</strong>
-          </Link>
+            <strong className="d-inline text-dark">{site.siteTitle}</strong>
+          </a>
         </div>
         {width > breakpoint ? (
           <div className="mainHeader--nav d-flex justify-flex-end">
             <nav className="mainNavigation d-flex align-items-center">
-              {siteData.menuLinks.map((link, index) => (
-                <Link
-                  to={link.url}
+              {site.menuLinks.map((link, index) => (
+                <a
+                  href={link.url}
                   key={index}
                   className="mainNavigation--link"
-                  activeClassName="active"
                 >
                   {link.label}
-                </Link>
+                </a>
               ))}
             </nav>
           </div>
         ) : (
           <button
-            onClick={event => drawer()}
+            onClick={() => drawer()}
             className="btn mainHeader--button no-border"
+            type="button"
+            aria-label="Open menu"
           >
-            <img src={MenuIcon}  width="30" height="30" alt="menu icon"/>
+            <img
+              src="/icons/menu.inline.svg"
+              width="30"
+              height="30"
+              alt="menu icon"
+            />
           </button>
         )}
       </div>

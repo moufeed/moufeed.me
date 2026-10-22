@@ -1,0 +1,94 @@
+---
+import Layout from "../layouts/Layout.astro"
+import { site } from "../data/site"
+
+const skillGroups = [
+  {
+    title: "Core",
+    items: ["HTML", "CSS", "JavaScript", "TypeScript", "Sass"],
+  },
+  {
+    title: "Frameworks",
+    items: ["React", "Angular", "AngularJS"],
+  },
+  {
+    title: "Platform",
+    items: ["ASP.NET Core"],
+  },
+  {
+    title: "Tooling",
+    items: [
+      "jQuery",
+      "Handlebars",
+      "Webpack",
+      "Gulp",
+      "Less",
+      "Photoshop",
+      "XD",
+      "Illustrator",
+    ],
+  },
+]
+---
+
+<Layout title="About">
+  <div class="container about-page grid">
+    <div class="about-page-wrapper">
+      <header class="about-page--intro">
+        <h1 class="about-page--title">Who I Am</h1>
+        <div class="about-page--info">
+          <p>
+            I am a front-end developer with 6+ years of commercial experience,
+            based in Istanbul. I build websites that are fast, easy to use, and
+            grounded in best practices. By day I am a senior developer at a
+            local agency. Evenings are for family and freelance work.
+          </p>
+          <p>
+            Front-end is my primary focus. I am also exploring
+            <strong class="text-darken">Flutter</strong> and
+            <strong class="text-darken">React Native</strong>.
+          </p>
+          <p>
+            I join teams quickly with tools and habits around
+            <strong class="text-darken">Git</strong> and
+            <strong class="text-darken">Agile</strong>.
+          </p>
+        </div>
+      </header>
+
+      <section class="skills" aria-labelledby="skills-heading">
+        <h2 id="skills-heading" class="about-page--subtitle">Skills</h2>
+        <p class="skills--lede">
+          Responsive sites and web apps shaped for the device and browser in
+          front of the user.
+        </p>
+
+        <div class="skills--board">
+          {
+            skillGroups.map((group) => (
+              <div class="skills--group">
+                <h3 class="skills--group-title">{group.title}</h3>
+                <ul class="skills--list">
+                  {group.items.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+        </div>
+
+        <p class="skills--resume">
+          <a
+            rel="noreferrer"
+            href={site.resumeUrl}
+            target="_blank"
+            class="btn btn-fill"
+          >
+            Download resume
+          </a>
+        </p>
+      </section>
+    </div>
+  </div>
+</Layout>

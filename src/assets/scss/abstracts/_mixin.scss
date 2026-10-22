@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use 'variables' as *;
 
 @mixin display {
@@ -42,7 +43,7 @@
 
 // *  Media Quires mixin
 @mixin min-q($key) {
-  $size: map-get($breakpoints, $key);
+  $size: map.get($breakpoints, $key);
 
   @media (min-width: $size) {
     @content;
@@ -50,7 +51,7 @@
 }
 
 @mixin max-q($key) {
-  $size: map-get($breakpoints, $key);
+  $size: map.get($breakpoints, $key);
 
   @media (max-width: $size) {
     @content;
@@ -58,8 +59,8 @@
 }
 
 @mixin between-q($min, $max) {
-  $small: map-get($breakpoints, $min);
-  $large: map-get($breakpoints, $max);
+  $small: map.get($breakpoints, $min);
+  $large: map.get($breakpoints, $max);
 
   @media (min-width: $small) and (max-width: $large) {
     @content;

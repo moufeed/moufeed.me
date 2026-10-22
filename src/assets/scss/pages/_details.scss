@@ -37,6 +37,11 @@
       margin-bottom: 2rem;
     }
     &--main {
+      &--image {
+        width: 100%;
+        height: auto;
+      }
+
       &--brief {
         margin-top: 3rem;
       }
@@ -73,13 +78,26 @@
     }
   }
 
+  &--full-preview {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
   &--html {
     margin-top: 5rem;
 
-    h3{
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    h3 {
       width: 60%;
       margin-bottom: 20px;
-      strong{
+
+      strong {
         font-size: 1.6rem;
         font-weight: 400;
       }
