@@ -16,13 +16,33 @@ $container: (
 $colors: (
   primary: #1e5a96,
   secondary: #123d66,
-  text: #333,
-  drawer-overlay: rgba(black, 0.5),
-  drawer-background: white,
+  text: #333333,
+  surface: #ffffff,
+  surface-muted: #f3f6f9,
+  muted: #667788,
+  drawer-overlay: rgba(0, 0, 0, 0.5),
+  drawer-background: #ffffff,
   border: #dbdbdb,
   border-hover: #b5b5b5,
-  primary-invert: #fff,
+  primary-invert: #ffffff,
   dark-overlay: rgba(0, 0, 0, 0.4),
+  header: rgba(255, 255, 255, 0.82),
+);
+
+$colors-dark: (
+  primary: #6ba3d9,
+  secondary: #9bc4e8,
+  text: #e6edf5,
+  surface: #0e141b,
+  surface-muted: #181f29,
+  muted: #9aabbc,
+  drawer-overlay: rgba(0, 0, 0, 0.65),
+  drawer-background: #151c26,
+  border: #2c3848,
+  border-hover: #445566,
+  primary-invert: #0e141b,
+  dark-overlay: rgba(0, 0, 0, 0.55),
+  header: rgba(14, 20, 27, 0.88),
 );
 
 $roots: (

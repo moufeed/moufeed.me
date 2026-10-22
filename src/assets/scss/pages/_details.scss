@@ -48,7 +48,7 @@
     }
     &--aside {
       > div {
-        background: #f5f5f5;
+        background: var(--color-surface-muted);
         padding: var(--padding);
       }
       &--title {
@@ -57,7 +57,7 @@
       &--link {
         display: block;
         background: var(--color-secondary);
-        color: white;
+        color: var(--color-primary-invert);
         text-align: center;
         text-decoration: none;
         padding: 12px;

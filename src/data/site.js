@@ -29,17 +29,17 @@ export const socialLinks = [
   {
     label: "LinkedIn",
     url: "https://www.linkedin.com/in/mofid-juboqji/",
-    icon: "linkedin.png",
+    icon: "linkedin.svg",
   },
   {
     label: "Stackoverflow",
     url: "https://stackoverflow.com/users/4399730/moufeed-juboqji",
-    icon: "stack-overflow.png",
+    icon: "stack-overflow.svg",
   },
   {
     label: "Github",
     url: "https://github.com/moufeed",
-    icon: "github.png",
+    icon: "github.svg",
   },
 ]
 

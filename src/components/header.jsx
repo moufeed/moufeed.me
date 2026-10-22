@@ -2,7 +2,9 @@ import * as React from "react"
 import useWindowSize from "../hooks/window-size"
 import { breakpoint, site } from "../data/site"
 import { copy } from "../data/copy"
+import ThemeToggle from "./ThemeToggle.jsx"
 
+/** Site header with nav, CV link, and light/dark mode toggle */
 const Header = ({ drawer }) => {
   const [width] = useWindowSize()
 
@@ -41,22 +43,32 @@ const Header = ({ drawer }) => {
                   {copy.nav.resume}
                 </span>
               </a>
+              <ThemeToggle />
             </nav>
           </div>
         ) : (
-          <button
-            onClick={() => drawer()}
-            className="btn mainHeader--button no-border"
-            type="button"
-            aria-label={copy.a11y.openMenu}
-          >
-            <img
-              src="/icons/menu.inline.svg"
-              width="30"
-              height="30"
-              alt={copy.a11y.menuIcon}
-            />
-          </button>
+          <div className="mainHeader--tools">
+            <ThemeToggle />
+            <button
+              onClick={() => drawer()}
+              className="btn mainHeader--button no-border"
+              type="button"
+              aria-label={copy.a11y.openMenu}
+            >
+              <svg
+                className="mainHeader--icon"
+                viewBox="0 0 512 512"
+                width="20"
+                height="20"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="m464.883 64.267h-417.766c-25.98 0-47.117 21.136-47.117 47.149 0 25.98 21.137 47.117 47.117 47.117h417.766c25.98 0 47.117-21.137 47.117-47.117 0-26.013-21.137-47.149-47.117-47.149z" />
+                <path d="m464.883 208.867h-417.766c-25.98 0-47.117 21.136-47.117 47.149 0 25.98 21.137 47.117 47.117 47.117h417.766c25.98 0 47.117-21.137 47.117-47.117 0-26.013-21.137-47.149-47.117-47.149z" />
+                <path d="m464.883 353.467h-417.766c-25.98 0-47.117 21.137-47.117 47.149 0 25.98 21.137 47.117 47.117 47.117h417.766c25.98 0 47.117-21.137 47.117-47.117 0-26.012-21.137-47.149-47.117-47.149z" />
+              </svg>
+            </button>
+          </div>
         )}
       </div>
     </header>

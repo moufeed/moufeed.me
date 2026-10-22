@@ -140,7 +140,7 @@
     margin-top: 0.35rem;
     justify-self: center;
     border-radius: 50%;
-    background: var(--color-primary-invert);
+    background: var(--color-surface);
     border: 2px solid var(--color-primary);
     box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 12%, transparent);
     z-index: 1;
@@ -197,14 +197,14 @@
 
   &--type {
     font-weight: 500;
-    color: color-mix(in srgb, var(--color-text) 70%, white);
+    color: var(--color-muted);
   }
 
   &--dates {
     margin: 0;
     font-size: 0.9rem;
     line-height: 1.45;
-    color: color-mix(in srgb, var(--color-text) 72%, white);
+    color: var(--color-muted);
   }
 
   &--sep {
@@ -243,7 +243,7 @@
       padding: 0.15rem 0.45rem;
       border: 1px solid var(--color-border);
       border-radius: 2px;
-      background: #fff;
+      background: var(--color-surface-muted);
       font-size: 0.75rem;
       font-weight: 500;
       line-height: 1.3;

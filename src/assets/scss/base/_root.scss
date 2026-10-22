@@ -1,9 +1,21 @@
 @use '../abstracts' as *;
+
 :root {
+  color-scheme: light;
+
   @each $key, $value in $roots {
     --#{$key}: #{$value};
   }
+
   @each $key, $color in $colors {
+    --color-#{$key}: #{$color};
+  }
+}
+
+html.dark {
+  color-scheme: dark;
+
+  @each $key, $color in $colors-dark {
     --color-#{$key}: #{$color};
   }
 }

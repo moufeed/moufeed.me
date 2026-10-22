@@ -104,6 +104,8 @@ export const copy = {
     menuIcon: "menu icon",
     closeDrawer: "close drawer",
     twitterConnect: "Connect with me on Twitter",
+    themeToDark: "Switch to dark mode",
+    themeToLight: "Switch to light mode",
   },
   footer: {
     copyrightPrefix: "Copyright ©",

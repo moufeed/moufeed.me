@@ -12,10 +12,10 @@ html {
 }
 body {
   margin: 0;
-  background-color: #fff;
+  background-color: var(--color-surface);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: hsla(0, 0%, 0%, 0.8);
+  color: var(--color-text);
   font-family:  'Josefin Sans' , georgia, serif;
   font-weight: normal;
   word-wrap: break-word;
@@ -45,6 +45,7 @@ body {
   color: var(--color-primary);
 }
 
-.text-darken{
-  color: #171727;
+.text-dark,
+.text-darken {
+  color: var(--color-text);
 }

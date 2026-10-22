@@ -1,7 +1,7 @@
 .browser {
   padding: 10px 10px 10px;
   border-radius: 6px;
-  background: #f6f6f6;
+  background: var(--color-surface-muted);
 
   &--actions {
     display: flex;

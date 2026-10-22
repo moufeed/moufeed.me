@@ -1,0 +1,94 @@
+.themeToggle {
+  --theme-toggle-h: 1.85rem;
+  box-sizing: border-box;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  height: var(--theme-toggle-h);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 999px;
+  }
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: default;
+  }
+
+  &--track {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    width: 3.75rem;
+    height: 100%;
+    padding: 0.15rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-surface-muted);
+    transition: border-color 0.2s ease;
+  }
+
+  &:hover &--track,
+  &:focus-visible &--track {
+    border-color: var(--color-primary);
+  }
+
+  &--option {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    min-width: 0;
+    font-size: 0.68rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-muted);
+    transition: color 0.2s ease;
+  }
+
+  &--thumb {
+    position: absolute;
+    top: 0.15rem;
+    bottom: 0.15rem;
+    left: 0.15rem;
+    width: calc(50% - 0.15rem);
+    border-radius: 999px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 1px 2px color-mix(in srgb, var(--color-text) 12%, transparent);
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 0;
+  }
+
+  &.is-light &--option-light,
+  &.is-dark &--option-dark {
+    color: var(--color-primary);
+  }
+
+  &.is-dark &--thumb {
+    transform: translateX(100%);
+  }
+}
+
+.mainNavigation .themeToggle {
+  margin-left: 0.45rem;
+}
+
+.mainHeader--tools .themeToggle {
+  margin-right: 0.2rem;
+}
+
+.drawer--theme {
+  margin: 0.25rem var(--padding) var(--padding);
+}
