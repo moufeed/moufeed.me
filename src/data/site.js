@@ -33,7 +33,7 @@ export const socialLinks = [
   },
   {
     label: "Stackoverflow",
-    url: "https://stackoverflow.com/users/4399730/moufeed-juboqji",
+    url: "https://stackoverflow.com/users/4399730/mofid-juboqji",
     icon: "stack-overflow.svg",
   },
   {
@@ -44,14 +44,14 @@ export const socialLinks = [
 ]
 
 export const site = {
-  title: "Front-end Developer",
+  title: "Senior Frontend Engineer · Angular · TypeScript · Form.io",
   description:
-    "Self-taught,Front-end Developer with 6+ years commercial experience creating successful websites.",
+    "Senior Frontend Developer with 8+ years of experience building responsive web applications, CMS platforms, dashboards, and hybrid mobile experiences. Strong focus on Angular, TypeScript, JavaScript, and reusable UI components.",
   author: "@moufeed_m",
   siteUrl: "https://www.moufeed.me",
-  email: "m.jobakji@hotmail.com",
-  name: "Mofid juboqji",
-  siteTitle: "Mofid juboqji",
+  email: "m.juboqji@outlook.com",
+  name: "Mofid Juboqji",
+  siteTitle: "Mofid Juboqji",
   contactLabel: copy.nav.contact,
   contactUrl,
   menuLinks,
