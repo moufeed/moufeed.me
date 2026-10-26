@@ -37,7 +37,7 @@ export const copy = {
     skillsHeading: "Skills",
     skillsLede:
       "Frontend engineering focused on Angular, TypeScript, reusable UI, and maintainable bilingual web experiences.",
-    resumeCta: "Download resume",
+    resumeCta: "Download CV",
     skillGroups: [
       {
         title: "Design & coding",

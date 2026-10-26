@@ -2,31 +2,50 @@ import * as React from "react"
 import { copy } from "../data/copy"
 import { applyTheme, resolveTheme, toggleTheme } from "../data/theme"
 
+const THEME_EVENT = "themechange"
+
 const ThemeToggle = ({ className = "" }) => {
   const [theme, setThemeState] = React.useState("light")
   const [ready, setReady] = React.useState(false)
 
   React.useEffect(() => {
-    setThemeState(applyTheme(resolveTheme()))
-    setReady(true)
-
-    const media = window.matchMedia("(prefers-color-scheme: dark)")
-    const onChange = () => {
-      try {
-        if (!localStorage.getItem("theme")) {
-          setThemeState(applyTheme(resolveTheme()))
-        }
-      } catch {
-        setThemeState(applyTheme(resolveTheme()))
-      }
+    const sync = () => {
+      setThemeState(applyTheme(resolveTheme()))
+      setReady(true)
     }
 
-    media.addEventListener("change", onChange)
-    return () => media.removeEventListener("change", onChange)
+    sync()
+
+    const media = window.matchMedia("(prefers-color-scheme: dark)")
+    const onMedia = () => {
+      try {
+        if (!localStorage.getItem("theme")) sync()
+      } catch {
+        sync()
+      }
+    }
+    const onThemeEvent = (event) => {
+      const next = event?.detail?.theme
+      if (next === "light" || next === "dark") setThemeState(next)
+      else sync()
+    }
+
+    media.addEventListener("change", onMedia)
+    document.addEventListener("astro:after-swap", sync)
+    window.addEventListener(THEME_EVENT, onThemeEvent)
+    return () => {
+      media.removeEventListener("change", onMedia)
+      document.removeEventListener("astro:after-swap", sync)
+      window.removeEventListener(THEME_EVENT, onThemeEvent)
+    }
   }, [])
 
   const onToggle = () => {
-    setThemeState(toggleTheme())
+    const next = toggleTheme()
+    setThemeState(next)
+    window.dispatchEvent(
+      new CustomEvent(THEME_EVENT, { detail: { theme: next } })
+    )
   }
 
   const isDark = theme === "dark"

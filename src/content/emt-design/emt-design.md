@@ -11,7 +11,7 @@ featured : true
 date :  "Jul 15 2019"
 order : 0
 css : ""
-url  : http://emt-design.com
+url  : ""
 excerpt:  Excellence Miles delivers decoration projects and services in accordance with the standards and levels of distinct local and global perspectives.
 brief : For the project, I used jQuery, Bootstrap, and Sass to develop a front-end interactive website for emt-design. As part of the project, I designed a website that matched the designs and interactive concepts.
 tools : [  HTML5 ,CSS3 – preprocessed with SCSS , Responsive Website Design ,  Asp.net core  - Razor pages , "JavaScript - jquery " , Slick Slider  , Gulp js]

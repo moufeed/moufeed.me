@@ -15,10 +15,10 @@ export const menuLinks = [
     label: copy.nav.experience,
     url: "/#experience",
   },
-  // {
-  //   label: copy.nav.portfolio,
-  //   url: "/portfolio",
-  // },
+  {
+    label: copy.nav.portfolio,
+    url: "/portfolio",
+  },
   {
     label: copy.nav.contact,
     url: contactUrl,

@@ -26,7 +26,7 @@
   }
   &--tools {
     grid-column: -1;
-    display: inline-flex;
+    display: none !important;
     align-items: center;
     justify-content: flex-end;
     gap: 0.15rem;
@@ -72,6 +72,12 @@ html.dark .mainHeader--button.btn {
     padding: var(--padding);
     &--logo {
       grid-column: 1/9;
+    }
+    &--nav {
+      display: none !important;
+    }
+    &--tools {
+      display: inline-flex !important;
     }
   }
 }

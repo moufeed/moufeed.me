@@ -1,0 +1,46 @@
+---
+import { site } from "../data/site"
+import { copy } from "../data/copy"
+import ThemeToggle from "./ThemeToggle.jsx"
+import MobileChrome from "./MobileChrome.jsx"
+---
+
+<header class="mainHeader container" transition:persist="main-header">
+  <div class="grid">
+    <div class="mainHeader--logo">
+      <a href="/" class="d-flex align-items-center mainHeader--logo--link">
+        <img
+          src="/icon.png"
+          width="55"
+          height="55"
+          alt={copy.a11y.logoAlt}
+        />
+        <strong class="d-inline text-dark">{site.siteTitle}</strong>
+      </a>
+    </div>
+    <div class="mainHeader--nav d-flex justify-flex-end">
+      <nav class="mainNavigation d-flex align-items-center">
+        {
+          site.menuLinks.map((link) => (
+            <a href={link.url} class="mainNavigation--link">
+              {link.label}
+            </a>
+          ))
+        }
+        <a
+          href={site.resumeUrl}
+          class="btn mainNavigation--resume"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span class="mainNavigation--resume-label">{copy.nav.resume}</span>
+        </a>
+        <ThemeToggle client:load />
+      </nav>
+    </div>
+    <!-- Static wrapper so critical CSS can hide the menu button before JS -->
+    <div class="mainHeader--tools">
+      <MobileChrome client:load />
+    </div>
+  </div>
+</header>

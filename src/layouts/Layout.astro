@@ -1,5 +1,6 @@
 ---
-import SiteChrome from "../components/SiteChrome.jsx"
+import { ClientRouter } from "astro:transitions"
+import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
 import { site } from "../data/site"
 import "../assets/scss/style.scss"
@@ -34,25 +35,45 @@ const pageTitle = `${title} | ${site.title}`
       href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Critical: hide mobile menu chrome before deferred CSS/JS applies -->
+    <style is:inline>
+      .mainHeader--tools {
+        display: none !important;
+      }
+      @media (max-width: 576px) {
+        .mainHeader--nav {
+          display: none !important;
+        }
+        .mainHeader--tools {
+          display: inline-flex !important;
+        }
+      }
+    </style>
     <script is:inline>
       ;(function () {
-        try {
-          var stored = localStorage.getItem("theme")
-          var dark =
-            stored === "dark" ||
-            (stored !== "light" &&
-              window.matchMedia("(prefers-color-scheme: dark)").matches)
-          if (dark) document.documentElement.classList.add("dark")
-          document.documentElement.style.colorScheme = dark ? "dark" : "light"
-          var meta = document.querySelector('meta[name="theme-color"]')
-          if (meta) meta.setAttribute("content", dark ? "#0e141b" : "#ffffff")
-        } catch (e) {}
+        function applyTheme() {
+          try {
+            var stored = localStorage.getItem("theme")
+            var dark =
+              stored === "dark" ||
+              (stored !== "light" &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches)
+            document.documentElement.classList.toggle("dark", dark)
+            document.documentElement.style.colorScheme = dark ? "dark" : "light"
+            var meta = document.querySelector('meta[name="theme-color"]')
+            if (meta) meta.setAttribute("content", dark ? "#0e141b" : "#ffffff")
+          } catch (e) {}
+        }
+        applyTheme()
+        // ClientRouter replaces <html> on navigate; restore theme before paint
+        document.addEventListener("astro:after-swap", applyTheme)
       })()
     </script>
+    <ClientRouter />
     <title>{pageTitle}</title>
   </head>
   <body>
-    <SiteChrome client:load />
+    <Header />
     <main>
       <slot />
     </main>

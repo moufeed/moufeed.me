@@ -11,7 +11,7 @@ featured : true
 date :  "Mar 05 2019"
 order : 0
 css : ""
-url  :  https://www.tamtech.solutions
+url  :  ""
 excerpt:  TAM CMS is fully customizable CMS that empowers your business identity in the digital world.
 brief : For Tamtech's one-page website, I was responsible for design and development. I built the website jquery JS and Sass Bootstrap.
 tools : [  HTML5 – semantic   ,CSS3 – preprocessed with SASS , Responsive Website Design ,  Asp.net core  - Razor pages , "JavaScript - jquery ,   jquery.validate" , Gulp js]
