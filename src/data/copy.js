@@ -61,6 +61,41 @@ export const copy = {
         items: ["Git", "npm", "Webpack"],
       },
     ],
+    educationHeading: "Education",
+    education: {
+      degree: "Undergraduate degree",
+      institution: "Aleppo University",
+      field: "Metallurgy and Materials Studies (AES)",
+    },
+    certificationsHeading: "Certifications",
+    certifications: [
+      {
+        title: "IBM Front-End Developer Professional Certificate",
+        issuer: "IBM",
+        url: "https://www.coursera.org/account/accomplishments/specialization/5AGYVS4XF62E",
+      },
+      {
+        title: "Meta Front-End Developer Professional Certificate",
+        issuer: "Meta",
+        url: "https://www.coursera.org/account/accomplishments/specialization/2ISBZEAJ2PHQ",
+      },
+      {
+        title: "Mastering Angular Development Specialization",
+        issuer: "Edureka",
+        url: "https://www.coursera.org/account/accomplishments/specialization/L56UPPAL35Q9",
+      },
+      {
+        title: "Responsive Web Design",
+        issuer: "freeCodeCamp",
+        url: "https://www.freecodecamp.org/certification/mofid-juboqji/responsive-web-design",
+      },
+    ],
+    languagesHeading: "Languages",
+    languages: [
+      { name: "Arabic", level: "Native" },
+      { name: "English", level: "Intermediate" },
+      { name: "Turkish", level: "Beginner" },
+    ],
   },
   contact: {
     lede: "Whether you have a project brief, a freelance inquiry, or a quick question about front-end work, send a message with as much detail as you like. I read every email and will get back to you as soon as I can, usually within a couple of days.",

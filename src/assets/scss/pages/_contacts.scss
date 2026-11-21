@@ -38,6 +38,12 @@
     word-break: break-word;
   }
 
+  &--location {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--color-text);
+  }
+
   &--social {
     display: flex;
     flex-wrap: wrap;

@@ -49,17 +49,64 @@ const { about } = copy
           }
         </div>
 
-        <p class="skills--resume">
-          <a
-            rel="noreferrer"
-            href={site.resumeUrl}
-            target="_blank"
-            class="btn btn-fill"
-          >
-            {about.resumeCta}
-          </a>
-        </p>
       </section>
+
+      <section class="about-block" aria-labelledby="education-heading">
+        <h2 id="education-heading" class="about-page--subtitle">
+          {about.educationHeading}
+        </h2>
+        <div class="about-block--body">
+          <p class="about-block--lead">
+            <strong>{about.education.degree}</strong> — {about.education.institution}
+          </p>
+          <p class="about-block--detail">{about.education.field}</p>
+        </div>
+      </section>
+
+      <section class="about-block" aria-labelledby="certifications-heading">
+        <h2 id="certifications-heading" class="about-page--subtitle">
+          {about.certificationsHeading}
+        </h2>
+        <ul class="about-block--list list-style-none">
+          {
+            about.certifications.map((item) => (
+              <li>
+                <a href={item.url} target="_blank" rel="noreferrer">
+                  <strong>{item.title}</strong>
+                  {" — "}
+                  {item.issuer}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section class="about-block" aria-labelledby="languages-heading">
+        <h2 id="languages-heading" class="about-page--subtitle">
+          {about.languagesHeading}
+        </h2>
+        <ul class="skills--list">
+          {
+            about.languages.map((lang) => (
+              <li>
+                {lang.name} — {lang.level}
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <p class="skills--resume">
+        <a
+          rel="noreferrer"
+          href={site.resumeUrl}
+          target="_blank"
+          class="btn btn-fill"
+        >
+          {about.resumeCta}
+        </a>
+      </p>
     </div>
   </div>
 </Layout>

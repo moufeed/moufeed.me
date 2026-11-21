@@ -110,9 +110,49 @@
     }
   }
 
-  &--resume {
-    margin: 2.25rem 0 0;
+}
+
+.about-block {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+
+  &--body {
+    margin-top: 0.75rem;
+    max-width: 42rem;
+    line-height: 1.65;
   }
+
+  &--lead {
+    margin: 0 0 0.35rem;
+    font-size: calc(var(--text-fs) * 1.1);
+  }
+
+  &--detail {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  &--list {
+    margin: 0.85rem 0 0;
+    padding: 0;
+    max-width: 42rem;
+    line-height: 1.65;
+
+    li {
+      margin: 0 0 0.65rem;
+    }
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        color: var(--color-secondary);
+      }
+    }
+  }
+}
+
+.skills--resume {
+  margin: 2.25rem 0 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {

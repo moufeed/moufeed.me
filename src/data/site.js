@@ -50,6 +50,7 @@ export const site = {
   author: "@moufeed_m",
   siteUrl: "https://www.moufeed.me",
   email: "m.juboqji@outlook.com",
+  location: "Istanbul, Türkiye",
   name: "Mofid Juboqji",
   siteTitle: "Mofid Juboqji",
   contactLabel: copy.nav.contact,
